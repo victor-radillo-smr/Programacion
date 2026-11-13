@@ -9,8 +9,13 @@ import java.util.Scanner;
  * @author Alumno
  */
 public class potencia {
-     /**
-     * @param args the command line arguments
+
+    /**
+     * Funcion para hacer una potencia a partir de una base y un exponente
+     * entregado por el usuario la cual devuelve el resultado
+     * @param base base de la potencia entregada por elusuario tipo int
+     * @param exponente exponente de la potencia entregado por elusuario tipo int
+     * @return resultado de la potencia tipo int
      */
     public static int potencia(int base, int exponente) {
         int resultado = base;
@@ -20,6 +25,9 @@ public class potencia {
         return  resultado;
     }
     
+     /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         // TODO code application logic here
         int base, exponente, resultado;
