@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package hojaDeEjercicios1;
-
 import java.util.Scanner;
 
 /**
@@ -11,62 +10,85 @@ import java.util.Scanner;
  * @author Alumno
  */
 public class E23RegistroVentas {
+    
+    static void mostrarMenu(){
+        System.out.println("==== MENÚ DE REGISTRO DE VENTAS ====");
+        System.out.println("1. Añadir nueva venta");
+        System.out.println("2. Ver total de ventas");
+        System.out.println("3. Ver número de ventas");
+        System.out.println("4. Salir");
+        System.out.println(" ");
+        System.out.print("Selecciona una opcion: ");
+        System.out.println(" ");
+    }
 
-    static double aplicarDescuento(double precio_total){
-        double descuento;
-        
-        if (precio_total > 100) {
-            descuento = precio_total * 0.10;
-            precio_total = precio_total - descuento;
+    /**
+     * Funcion que añade una venta y devuelve el valor de la venta
+     * @return devuelve el valor de la venta que se quiere registrar
+     */
+    static double agregarVenta(){
+        double valor_venta;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce el valor de la venta: ");
+        valor_venta = sc.nextDouble();
+
+        while (valor_venta < 0){
+            System.out.println("El valor no puede ser negativo porfavor introduce un valor valido: ");
+            valor_venta = sc.nextDouble();            
         }
-        return precio_total;
-    }   
+        return valor_venta;
+    }
+
+    /**
+     * Funcion que imprime el total acumulado.
+     */
+    static void mostrarTotalVentas(double b){
+        System.out.println("El total acumulado de ventas es: " + b + "€");
+        System.out.println(" ");
+    }
     
     /**
-     * 
+     * Funcion que imprime el número de ventas
      */
-    static void calcularTotal(){
-        double cantidad, producto, total_descuento;
-        double total_productos = 0;
-        Scanner sc = new  Scanner(System.in);
-    
-        System.out.print("¿Cuantos precios quieres introducir?: ");
-        cantidad = sc.nextInt();
-    
-        while (cantidad<1) {
-            System.out.print("No puedes introducir menos de 1 producto porfavor introduce la cantidad de productos:  ");    
-            cantidad = sc.nextInt();
-        }
-    
-        for (int contador = 1; contador <= cantidad; contador++) {
-            System.out.print("Introduce el precio " + contador + ": ");
-            producto = sc.nextFloat(); 
-         
-            while (producto < 0) {
-                System.out.print("El precio no puede ser menor que cero vuelve a introducir el precio: ");
-                producto = sc.nextFloat();     
-            }
-        
-            total_productos = producto + total_productos;
-        }
-        total_descuento = aplicarDescuento(total_productos);
-    
-        if (total_descuento == total_productos) {
-            System.out.println("El total sin descuento es: " + total_productos); 
-            System.out.println("No se aplicó descuento"); 
-        } else {
-            System.out.println("El total sin descuento es: " + total_productos);
-            System.out.println("Se aplicó descuento del 10%");
-            System.out.println("El total con descuento es: " + total_descuento);
-        }
-    }    
-
+    static void mostrarNumeroVentas(int a){
+        System.out.println("Se han registrado " + a + " ventas");
+        System.out.println(" ");
+    }
 
     /**
     * @param args the command line arguments
     */
     public static void main(String[] args) {
-        System.out.println("==== MENÚ DE REGISTRO DE VENTAS ====");
-        System.out.println("1. Añadir nueva venta");
+        int eleccion;
+        double suma = 0;
+        int contador = 0;
+        Scanner sc = new Scanner(System.in);
+
+        mostrarMenu();
+        eleccion = sc.nextInt();
+        while (eleccion != 4){
+
+            while (eleccion < 1 || eleccion > 4){
+                System.out.println(" ");
+                System.out.println("Porfavor introduce una de las opciones dadas; ");
+                System.out.println(" ");
+                eleccion = sc.nextInt();
+            }
+
+            switch (eleccion){
+                    case 1:
+                        suma = suma + agregarVenta();
+                        contador ++;
+                        break;
+                    case 2:
+                        mostrarTotalVentas(suma);
+                        break;
+                    case 3:
+                        mostrarNumeroVentas(contador);
+                        break;
+            }
+        }
+        System.out.println("Saliendo del programa.");
     }
 }
