@@ -4,14 +4,13 @@
  */
 package hojaDeEjercicios1;
 import java.util.InputMismatchException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  *
  * @author Alumno
  */
-public class E3OrdenInverso {
+public class E3OrdenInverso3 {
     static Scanner sc = new Scanner(System.in);
     
     static int leerNumero (){

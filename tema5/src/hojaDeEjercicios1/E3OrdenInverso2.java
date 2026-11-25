@@ -4,15 +4,13 @@
  */
 package hojaDeEjercicios1;
 import java.util.InputMismatchException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  *
  * @author Alumno
  */
-public class E3OrdenInverso {
-{
+public class E3OrdenInverso2 {
     /**
      * @param args the command line arguments
      */
@@ -28,7 +26,19 @@ public class E3OrdenInverso {
         System.out.println("");
         System.out.print("Dame el número de items que quieres que haya en el array (recuerda que son números enteros):");
        
-       
+               do{
+            try {
+                num = sc.nextInt();
+                while (num <= 0){
+                  System.out.println("Error Un array no puede tener capacidad negativa introduce un entero positivo: ");
+                  num = sc.nextInt();
+                }
+                controlador1 = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error tienes que introducir un número entero para elegir los items de la tabla");
+                sc.nextLine();
+            }
+        }while(!controlador1);
         
         System.out.println("");
         System.out.println("Bien ha escogido una lista de " + num + " elementos ");
