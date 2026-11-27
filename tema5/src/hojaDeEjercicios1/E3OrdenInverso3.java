@@ -11,11 +11,11 @@ import java.util.Scanner;
  * @author Alumno
  */
 public class E3OrdenInverso3 {
-    static Scanner sc = new Scanner(System.in);
     
     static int leerNumero (){
         int num = 0;
         boolean controlador = false;
+        Scanner sc = new Scanner(System.in);
         
         do{
             try {
@@ -38,8 +38,9 @@ public class E3OrdenInverso3 {
     public static void main(String[] args) {
         boolean controlador = false;
         int i = 0;
-        int num = 0;
-        int tabla1[] = null ; 
+        int num;
+        int tabla1[];
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("Este programa sirve para rellenar una array. " );
         System.out.println("");

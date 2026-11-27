@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package hojaDeEjercicios1;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
